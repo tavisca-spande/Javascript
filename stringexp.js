@@ -1,7 +1,7 @@
  
-var stringoperations=function(){
+var stringoperations = function () {
 var optionarr = document.getElementById("options");
-var optval=optionarr.options[optionarr.selectedIndex].text;
+var optval = optionarr.options[optionarr.selectedIndex].text;
 var strtind = document.getElementById("startindex");
 var endind = document.getElementById("endindex");
 
@@ -16,10 +16,10 @@ var s2 = new string_exp(str2.value);
 switch(optval)
     {
     	case "Length":		
-    		res.value=s1.strlength;
+    		res.value = s1.strlength;
 	    break;
 	    case "Concate":
-	    	res.value=s1.concatenation(s2);
+	    	res.value = s1.concatenation(s2);
 	    break;
 	    case "SubString":
 	   		res.value = s1.mysubstring(strtind.value,endind.value);
@@ -29,15 +29,15 @@ switch(optval)
 	     break;
 
 	     case "indexof":
-	     res.value =s1.indexof(str2.value);
+	     res.value = s1.indexof(str2.value);
 	     break;
 
 	     case "lastindexof":
-	     res.value=s1.lastindexof(str2.value);
+	     res.value = s1.lastindexof(str2.value);
 	     break;
 
 	     case "Replace":
-	     res.value=s1.myreplace(str2.value,str3.value);
+	     res.value = s1.myreplace(str2.value,str3.value);
 	     break;
 
 
@@ -56,10 +56,15 @@ function string_exp(value){
  	this.mysubstring = function(start,end){
  		var i =0;
  		var temp="";
- 		/*if(end===undefined)
+		
+ 		if(end==="")
  		{
- 			end=this.value.strlength;
- 		}*/
+ 			end=this.strlength;
+ 		}
+		
+		if(start<0||end<0||start>end)
+			throw "Incorrect value";
+		
  		for (i=start;i<end;i++)
  			temp+=this.value[i];
  		return temp;
@@ -67,26 +72,35 @@ function string_exp(value){
 
  	this.charat = function(strindex){
  		if (this.strlength<strindex || strindex<0)
- 			alert("Enter proper index");
+ 			throw "Enter proper index";
  		var temp = this.value[strindex];
  		return temp;
  	}
 
  	this.indexof= function (char){
- 		var i=0;
- 		var j=0;
- 		var check = true;
- 		var found = 0;	
- 		var ind=0;
-
- 		while(i < this.strlength)
+		c = new string_exp(char);
+ 		var ind =0; 
+		var j=0;
+		
+		for (var i = 0; this.value[i] !==undefined; i++) 
 		{
-			if(this.value[i] === char)
-				return i;
-			i++;
+			 if(this.value[i]===c.value[j])
+			 {
+				  ind=i;
+					j++;
+				  if(j===c.strlength)
+				  {
+					 break;
+				  }
+			 }
+
+		}
+		if(c.strlength>1){
+				ind -=c.strlength-1;
 		}
 
- 	}
+			return ind;
+ 		}
 
  	this.lastindexof = function(val){
  		var i =this.strlength;
@@ -119,7 +133,7 @@ function string_exp(value){
 var strlength = function()
 {
 	var i=0;
-    	 while(this.value[i]!=null)
+    	 while(this.value[i]!==undefined)
     	   i++;
     return i;
 }   
