@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>StringOperations</title>
     <script src="stringexp.js"></script>
 </head>
 <body>
     <form>
-
         <label>Input String 1:</label>
         <input type="text" id="ipstring1" />
-        <br />
+      	<br/>
+		
 
         <label>InputString 2:</label>
         <input type="text" id="ipstring2" />
@@ -17,22 +16,20 @@
 
         <label>InputString 3:</label>
         <input type="text" id="ipstring3" />
+		<label> (for replace function the second input) </label>
         <br />
 
         <label>Start index :</label>
-        <input type="number" id="startindex" />
+        <input type="number" id="startindex" /> 
+			<label> (Charat function index input ) </label>
         <br />
 
         <label>End index :</label>
         <input type="number" id="endindex" />
         <br />
 
-        <label>Output:</label>
-        <input type="text" id="opstring" />
-        <br />
-
-       <select id="options" onchange="stringoperations()">
-            <option value =""></option>
+		 <select id="options" onchange="stringoperations();">
+            <option value ="default">Choose operation</option>
             <option value ="Length">Length</option>
             <option value ="Concate">Concate</option>
             <option value ="SubString">SubString</option>
@@ -41,6 +38,17 @@
             <option value ="lastindexof">lastindexof</option>
             <option value ="Replace">Replace</option>
        </select>
+		<br/>
+		<br/><br/><br/>
+		
+        <label>Output:</label>
+        <input type="text" id="opstring" readonly/>
+       <!-- <br />
+		
+		<input type="button" id="resultBtn" value="Result"/ > 
+		<br/>-->
+
+      
 </form>
 
 </body>
