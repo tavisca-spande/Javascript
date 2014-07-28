@@ -112,6 +112,9 @@ var strlength = function()
     return i;
 }   
 
+
+
+
 	var stringoperations = function () {
 	var optionarr=document.getElementById("options");
 	var strtind = document.getElementById("startindex");
@@ -126,31 +129,36 @@ var strlength = function()
 	switch(optval)
 		{
 			case "Length":		
-				res.value = s1.strlength;
+				res.innerHTML = s1.strlength;
 			break;
 			case "Concate":
-				res.value = s1.concatenation(s2);
+				res.innerHTML = s1.concatenation(s2);
 			break;
 			case "SubString":
-				res.value = s1.mysubstring(strtind.value,endind.value);
+				res.innerHTML= s1.mysubstring(strtind.value,endind.value);
 			 break;
 			 case "CharAt":
-			 res.value = s1.charat(strtind.value);
+			res.innerHTML = s1.charat(strtind.value);
 			 break;
 
 			 case "indexof":
-			 res.value = s1.indexof(str2.value);
+			res.innerHTML = s1.indexof(str2.value);
 			 break;
 
 			 case "lastindexof":
-			 res.value = s1.lastindexof(str2.value);
+			 res.innerHTML = s1.lastindexof(str2.value);
 			 break;
 
 			 case "Replace":
-			 res.value = s1.myreplace(str2.value,str3.value);
+			res.innerHTML = s1.myreplace(str2.value,str3.value);
 			 break;
 		}
 }
+
+var optionarr=document.getElementById("options");
+optionarr.onchange = stringoperations;
+
+
 
 
 

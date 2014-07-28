@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>StringOperations</title>
-    <script src="stringexp.js"></script>
+
 </head>
 <body>
     <form>
@@ -28,7 +28,7 @@
         <input type="number" id="endindex" />
         <br />
 
-		 <select id="options" onchange="stringoperations();">
+		 <select id="options">
             <option value ="default">Choose operation</option>
             <option value ="Length">Length</option>
             <option value ="Concate">Concate</option>
@@ -42,14 +42,14 @@
 		<br/><br/><br/>
 		
         <label>Output:</label>
-        <input type="text" id="opstring" readonly/>
-       <br />
+        <label id="opstring" ></label>
+        <br />
 		
 		<!--<input type="button" id="resultBtn" value="Result"/ > 
 		<br/>
 -->
       
 </form>
-
+    <script src="stringexp.js"></script>
 </body>
 </html>
